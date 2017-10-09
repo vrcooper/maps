@@ -1,0 +1,130 @@
+<h1>Accelerators</h1>
+
+<table>
+ <thead>
+  <tr>
+   <th>Latitude</th>
+   <th>Longitude</th>
+   <th>Address<th>
+   <th>Organization</th>
+   <th>Organization Profile</th>
+   <th></th>
+   <th></th>
+   <th></th>
+  </tr>
+ </thead>
+
+ <tbody>
+  <% @accelerators.each do |accelerator| %>
+  <tr>
+    <td><%= accelerator.latitude %></td>
+    <td><%= accelerator.longitude %></td>
+    <td><%= accelerator.address %></td>
+    <td><%= accelerator.organization %></td>
+    <td><%= accelerator.organization_profile %></td>
+    <td><%= link_to 'Show', accelerator %></td>
+    <td><%= link_to 'Edit', edit_accelerator_path(accelerator) %></td>
+    <td><%= link_to 'Destroy', accelerator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+   <% end %>
+ </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accelerator', new_accelerator_path %>
+
+ <div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div> 
+
+
+<script>
+ function initMap(){
+   var options = {
+     zoom:6,
+     center: {lat: 37.774, lng: -122.419}
+   }
+
+   var map = new google.maps.Map(document.getElementById('map'), options);
+
+
+  //  var marker = new google.maps.Marker({
+  //   position:{lat: 37.390, lng: -122.081},
+  //   map:map
+  // });
+  //   var infoWindow = new google.maps.InfoWindow({
+  //     content:'<h1>Mountain View, CA</h1>'
+  //   });
+
+  //   marker.addListener('click', function(){
+  //     infoWindow.open(map, marker);
+  //   });
+
+// Array of markers
+var markers = [
+
+{
+  coords:{lat:37.390,lng:-122.081}
+},
+  
+  {
+   coords:{lat:338.627,lng:-90.221}
+  },
+  
+  {
+    coords:{lat:37.774,lng:-122.419}
+  } 
+
+];
+
+// addMarker({coords:{lat:37.390,lng:-122.081}});
+// addMarker({coords:{lat:37.804,lng:-122.271}});
+// addMarker({coords:{lat:37.774,lng:-122.419}});
+
+  // Loop through markers
+  for(var i = 0;i < markers.length;i++){
+    // Add marker
+   addMarker(markers[i]);
+  }
+
+// Add Marker Function
+function addMarker(props){
+var marker = new google.maps.Marker({
+    position:props.coords,
+    map:map
+  });
+
+}
+
+}
+</script>
+  <!--  <script>
+ //      function initMap() {
+ //        var mountain_view = {lat: 37.390, lng: -122.081};
+ //        var map = new google.maps.Map(document.getElementById('map'), {
+ //          zoom: 4,
+ //          center: mountain_view
+ //        });
+ //        var marker = new google.maps.Marker({
+ //          position: mountain_view,
+ //          map: map
+ //        });
+ //      }
+ //    </script> -->
+
+<!-- // <script type="text/javascript"> 
+//   handler = Gmaps.build('Google');
+//   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+//     markers = handler.addMarkers(<%= raw @hash.to_json %>);
+//     handler.bounds.extendWith(markers);
+//     handler.fitMapToBounds();
+//   });
+
+// </script> -->
+
+  
+
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCr4dhD_03iQRnUU8nAIP8-w5eKCe3zwQ&callback=initMap">
+    </script>

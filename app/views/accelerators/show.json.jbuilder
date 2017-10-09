@@ -1,0 +1,1 @@
+json.extract! @accelerator, :latitude, :longitude, :address, :organization, :organization_profile, :created_at, :updated_at
