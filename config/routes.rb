@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :accelerators, only: [:index, :create, :update, :delete, :show]
+  resources :accelerators #, only: [:create, :update, :delete, :show]
 
   root 'accelerators#index'
 
