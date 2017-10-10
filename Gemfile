@@ -30,3 +30,4 @@ gem 'turbolinks', '~> 5'
 # Map gems
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'underscore-rails'
