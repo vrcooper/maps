@@ -1,4 +1,4 @@
-<h1>Accelerators</h1>
+<h1>Food incubators</h1>
 <br>
 <h2><%= link_to 'Home', welcome_index_path %></h2>
 
@@ -17,16 +17,16 @@
  </thead>
 
  <tbody>
-  <% @accelerators.each do |accelerator| %>
+  <% @food_incubators.each do |food_incubator| %>
   <tr>
-    <td><%= accelerator.latitude %></td>
-    <td><%= accelerator.longitude %></td>
-    <td><%= accelerator.address %></td>
-    <td><%= accelerator.organization %></td>
-    <td><%= accelerator.organization_profile %></td>
-    <td><%= link_to 'Show', accelerator %></td>
-    <td><%= link_to 'Edit', edit_accelerator_path(accelerator) %></td>
-    <td><%= link_to 'Destroy', accelerator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= food_incubator.latitude %></td>
+    <td><%= food_incubator.longitude %></td>
+    <td><%= food_incubator.address %></td>
+    <td><%= food_incubator.organization %></td>
+    <td><%= food_incubator.organization_profile %></td>
+    <td><%= link_to 'Show', food_incubator %></td>
+    <td><%= link_to 'Edit', edit_food_incubator_path(food_incubator) %></td>
+    <td><%= link_to 'Destroy', food_incubator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
    <% end %>
  </tbody>
@@ -34,7 +34,7 @@
 
 <br>
 
-<%= link_to 'New Accelerator', new_accelerator_path %>
+<%= link_to 'New Food Incubator', new_food_incubator_path %>
 
  <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
@@ -58,9 +58,9 @@ function initMap () {
 }
 
 function markerFromDB() {
-  <% @accelerators.each do |accelerator| %>
-  var latitude = <%= accelerator.latitude %>;
-  var longitude = <%= accelerator.longitude %>;
+  <% @food_incubators.each do |food_incubator| %>
+  var latitude = <%= food_incubator.latitude %>;
+  var longitude = <%= food_incubator.longitude %>;
   addMarker(latitude, longitude);
   <%end%>
 }

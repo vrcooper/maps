@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008040811) do
+ActiveRecord::Schema.define(version: 20171023035430) do
 
   create_table "accelerators", force: :cascade do |t|
     t.string "program"
@@ -20,6 +20,23 @@ ActiveRecord::Schema.define(version: 20171008040811) do
     t.string "relevant_focus_areas"
     t.string "program_location"
     t.string "country"
+    t.string "city"
+    t.string "program_profile"
+    t.string "website"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "food_incubators", force: :cascade do |t|
+    t.string "program"
+    t.string "organization"
+    t.string "organization_profile"
+    t.string "category"
+    t.string "country"
+    t.string "state"
     t.string "city"
     t.string "program_profile"
     t.string "website"

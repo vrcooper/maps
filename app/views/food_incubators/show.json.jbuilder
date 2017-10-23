@@ -1,0 +1,1 @@
+json.extract! @food_incubator, :latitude, :longitude, :address, :organization, :organization_profile, :created_at, :updated_at
